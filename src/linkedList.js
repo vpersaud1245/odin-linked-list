@@ -1,15 +1,15 @@
-import Node from "./node.js";
+import Node from "./node";
 
 export default class LinkedList {
   constructor() {
-    this.head = null;
+    this.headNode = null;
   }
 
   append(value) {
     const newNode = new Node(value);
-    if (this.head === null) this.head = newNode;
+    if (this.headNode === null) this.headNode = newNode;
     else {
-      let currentNode = this.head;
+      let currentNode = this.headNode;
       let endFound = false;
       while (endFound === false) {
         if (currentNode.link === null) {
@@ -23,40 +23,60 @@ export default class LinkedList {
   }
 
   prepend(value) {
-    if (this.head === null) {
-      this.head = new Node(value);
+    if (this.headNode === null) {
+      this.headNode = new Node(value);
       return;
     }
-    this.head = new Node(value, this.head);
+    this.headNode = new Node(value, this.headNode);
   }
 
   size() {
     let sum = 0;
-    if (this.head === null) return sum;
+    if (this.headNode === null) return sum;
     let endFound = false;
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     while (!endFound) {
       sum += 1;
       if (currentNode.link === null) {
         endFound = true;
-        return sum;
       }
       currentNode = currentNode.link;
     }
+    return sum;
+  }
+
+  head() {
+    return this.headNode;
+  }
+
+  tail() {
+    if (this.headNode === null) return null;
+    let endFound = false;
+    let currentNode = this.headNode;
+    while (!endFound) {
+      if (currentNode.link === null) {
+        endFound = true;
+        break;
+      }
+      currentNode = currentNode.link;
+    }
+    return currentNode;
   }
 
   toString() {
     let linkedListString = "";
-    if (this.head === null) {
+    if (this.headNode === null) {
       linkedListString += "null";
+      // eslint-disable-next-line no-console
       console.log(linkedListString);
     } else {
-      let currentNode = this.head;
+      let currentNode = this.headNode;
       let endFound = false;
       while (endFound === false) {
         linkedListString += `(${currentNode.value}) -> `;
         if (currentNode.link === null) {
           linkedListString += "null";
+          // eslint-disable-next-line no-console
           console.log(`\n ${linkedListString} \n`);
           endFound = true;
         } else {

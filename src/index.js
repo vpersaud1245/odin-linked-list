@@ -1,6 +1,9 @@
-import LinkedList from "./linkedList.js";
+import LinkedList from "./linkedList";
 
 const list = new LinkedList();
+console.log(`Head: ${list.head()}`);
+console.log("Tail");
+console.log(list.tail());
 console.log(`size: ${list.size()}`);
 list.append("1");
 list.append("2");
@@ -8,6 +11,14 @@ list.append("3");
 list.append("4");
 list.toString();
 console.log(`size: ${list.size()}`);
+console.log("Head");
+console.log(list.head());
+console.log("Tail");
+console.log(list.tail());
 list.prepend("0");
 list.toString();
 console.log(`size: ${list.size()}`);
+console.log("Head");
+console.log(list.head());
+console.log("Tail");
+console.log(list.tail());
