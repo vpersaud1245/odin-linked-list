@@ -30,6 +30,21 @@ export default class LinkedList {
     this.head = new Node(value, this.head);
   }
 
+  size() {
+    let sum = 0;
+    if (this.head === null) return sum;
+    let endFound = false;
+    let currentNode = this.head;
+    while (!endFound) {
+      sum += 1;
+      if (currentNode.link === null) {
+        endFound = true;
+        return sum;
+      }
+      currentNode = currentNode.link;
+    }
+  }
+
   toString() {
     let linkedListString = "";
     if (this.head === null) {
@@ -39,7 +54,7 @@ export default class LinkedList {
       let currentNode = this.head;
       let endFound = false;
       while (endFound === false) {
-        linkedListString += `(${currentNode.data}) -> `;
+        linkedListString += `(${currentNode.value}) -> `;
         if (currentNode.link === null) {
           linkedListString += "null";
           console.log(`\n ${linkedListString} \n`);
