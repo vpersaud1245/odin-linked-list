@@ -5,6 +5,10 @@ export default class LinkedList {
     this.headNode = null;
   }
 
+  /**
+   * Adds a new node containing value to the end of the list
+   * @param {*} value
+   */
   append(value) {
     const newNode = new Node(value);
     if (this.headNode === null) this.headNode = newNode;
@@ -98,6 +102,40 @@ export default class LinkedList {
     elementAtSecondToLastIndex.link = null;
   }
 
+  contains(value) {
+    let valueFound = false;
+    if (this.headNode === null) return valueFound;
+    let endFound = false;
+    let currentNode = this.headNode;
+    while (!endFound) {
+      if (currentNode.value === value) {
+        valueFound = true;
+        break;
+      } else if (currentNode.link === null) {
+        endFound = true;
+      } else {
+        currentNode = currentNode.link;
+      }
+    }
+    return valueFound;
+  }
+
+  find(value) {
+    if (!this.contains(value)) {
+      return null;
+    }
+    let index = 0;
+    let currentNode = this.headNode;
+    for (let i = 0; i < this.size(); i += 1) {
+      if (currentNode.value === value) {
+        index = i;
+        break;
+      }
+      currentNode = currentNode.link;
+    }
+    return index;
+  }
+
   toString() {
     let linkedListString = "";
     if (this.headNode === null) {
@@ -112,12 +150,33 @@ export default class LinkedList {
         if (currentNode.link === null) {
           linkedListString += "null";
           // eslint-disable-next-line no-console
-          console.log(`\n ${linkedListString} \n`);
+          console.log(`${linkedListString}`);
           endFound = true;
         } else {
           currentNode = currentNode.link;
         }
       }
+    }
+  }
+
+  /**
+   * Removes the node at the given index.
+   * @param {*} index
+   */
+  removeAt(index) {
+    const size = this.size();
+    if (index < 0 || index > size - 1) {
+      console.log("Index out of Bounds");
+      return;
+    }
+    const priorIndex = this.at(index - 1);
+    const postIndex = this.at(index + 1);
+    if (index === 0) {
+      this.headNode = postIndex;
+    } else if (index === size - 1) {
+      priorIndex.link = null;
+    } else {
+      priorIndex.link = postIndex;
     }
   }
 }
