@@ -1,4 +1,4 @@
-import Node from "./node";
+import Node from "./node.js";
 
 export default class LinkedList {
   constructor() {
@@ -23,5 +23,24 @@ export default class LinkedList {
 
     // this.head.link will go to the next obj check if that is null if not go into
     // that until the link is null then set the null link to the new node
+  }
+
+  toString() {
+    let linkedListString = "(HEAD) -> ";
+    if (this.head === null) linkedListString += "null";
+    else {
+      let currentNode = this.head;
+      let endFound = false;
+      while (endFound === false) {
+        linkedListString += `(${currentNode.data}) -> `;
+        if (currentNode.link === null) {
+          linkedListString += "null";
+          console.log(`\n ${linkedListString} \n`);
+          endFound = true;
+        } else {
+          currentNode = currentNode.link;
+        }
+      }
+    }
   }
 }
