@@ -160,6 +160,27 @@ export default class LinkedList {
   }
 
   /**
+   * Inserts a new node with the provided value at the given index.
+   * @param {*} value
+   * @param {*} index
+   */
+  insertAt(value, index) {
+    const size = this.size();
+    if (index < 0 || index > size - 1) {
+      console.log("Index out of Bounds");
+    }
+    const priorIndex = this.at(index - 1);
+    const nodeAtCurrentIndex = this.at(index);
+    if (index === 0) {
+      this.headNode = new Node(value, nodeAtCurrentIndex);
+    } else if (index === size - 1) {
+      nodeAtCurrentIndex.link = new Node(value);
+    } else {
+      priorIndex.link = new Node(value, nodeAtCurrentIndex);
+    }
+  }
+
+  /**
    * Removes the node at the given index.
    * @param {*} index
    */

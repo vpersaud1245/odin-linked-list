@@ -36,16 +36,25 @@ console.log("Node at index -1:", list.at(-1));
 console.log("Node at index 4:", list.at(4));
 console.log("------------------------------------\n\n");
 
+console.log("\n----- POP TESTING -----");
+console.log("Current Linked List:");
+list.toString();
+console.log("pop");
 list.pop();
 list.toString();
+console.log("pop");
 list.pop();
 list.toString();
+console.log("pop");
 list.pop();
 list.toString();
+console.log("pop");
 list.pop();
 list.toString();
+console.log("pop");
 list.pop();
 list.toString();
+console.log("------------------------------------\n\n");
 
 // Append to list for testing
 list.append("1");
@@ -69,52 +78,47 @@ list.append("5");
 console.log("\n----- FIND VALUE TESTING -----");
 console.log("Current Linked List:");
 list.toString();
-console.log("Index of value 1", list.find("1"));
-console.log("Index of value 2", list.find("2"));
+console.log("Index of value -2", list.find("-2"));
+console.log("Index of value 5", list.find("5"));
 console.log("Index of value 3", list.find("3"));
-console.log("Index of value 4", list.find("4"));
 console.log("Index of value 0", list.find("0"));
 console.log("Index of value -1", list.find("-1"));
-console.log("Index of value 5", list.find("5"));
+console.log("------------------------------------\n\n");
+
+console.log("\n----- INSERT NODE AT INDEX TESTING -----");
+console.log("Current Linked List:");
+list.toString();
+console.log("Insert -3 at index 0");
+list.insertAt("-3", 0);
+list.toString();
+console.log("Insert 6 at index 5");
+list.insertAt("6", 5);
+list.toString();
+console.log("Insert 30 at index 2");
+list.insertAt("30", 2);
+list.toString();
 console.log("------------------------------------\n\n");
 
 console.log("\n----- REMOVE AT INDEX TESTING -----");
 console.log("Current Linked List:");
 list.toString();
-
-console.log("\nBefore: ");
-list.toString();
-console.log("Remove index 5:");
-list.removeAt(5);
-list.toString();
-
-console.log("\nBefore: ");
-list.toString();
 console.log("Remove index 0:");
 list.removeAt(0);
 list.toString();
 
-console.log("\nBefore: ");
-list.toString();
 console.log("Remove index 3:");
 list.removeAt(3);
 list.toString();
 
-console.log("\nBefore: ");
-list.toString();
-console.log("Remove index 3:");
-list.removeAt(3);
+console.log("Remove index 6:");
+list.removeAt(6);
 list.toString();
 
-console.log("\nBefore: ");
+console.log("Remove index 12:");
+list.removeAt(12);
 list.toString();
+
 console.log("Remove index -2:");
 list.removeAt(-2);
-list.toString();
-
-console.log("\nBefore: ");
-list.toString();
-console.log("Remove index 1:");
-list.removeAt(1);
 list.toString();
 console.log("------------------------------------\n\n");
