@@ -20,15 +20,22 @@ export default class LinkedList {
         }
       }
     }
+  }
 
-    // this.head.link will go to the next obj check if that is null if not go into
-    // that until the link is null then set the null link to the new node
+  prepend(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+      return;
+    }
+    this.head = new Node(value, this.head);
   }
 
   toString() {
-    let linkedListString = "(HEAD) -> ";
-    if (this.head === null) linkedListString += "null";
-    else {
+    let linkedListString = "";
+    if (this.head === null) {
+      linkedListString += "null";
+      console.log(linkedListString);
+    } else {
       let currentNode = this.head;
       let endFound = false;
       while (endFound === false) {
