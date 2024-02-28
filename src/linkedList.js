@@ -63,6 +63,23 @@ export default class LinkedList {
     return currentNode;
   }
 
+  at(index) {
+    if (index < 0 || index > this.size() - 1) {
+      return "Index out of Bounds";
+    }
+    let currentNode = this.headNode;
+    for (let i = 0; i <= index; i += 1) {
+      if (index === 0) {
+        break;
+      }
+      if (index === i) {
+        break;
+      }
+      currentNode = currentNode.link;
+    }
+    return currentNode;
+  }
+
   toString() {
     let linkedListString = "";
     if (this.headNode === null) {
