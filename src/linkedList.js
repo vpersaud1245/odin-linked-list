@@ -80,6 +80,24 @@ export default class LinkedList {
     return currentNode;
   }
 
+  pop() {
+    if (this.size() === 0) {
+      console.log("List is empty");
+      return;
+    }
+    if (this.size() === 1) {
+      this.headNode = null;
+      return;
+    }
+    if (this.size() === 2) {
+      this.headNode.link = null;
+      return;
+    }
+    const secondToLastIndex = this.size() - 2;
+    const elementAtSecondToLastIndex = this.at(secondToLastIndex);
+    elementAtSecondToLastIndex.link = null;
+  }
+
   toString() {
     let linkedListString = "";
     if (this.headNode === null) {

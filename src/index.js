@@ -32,3 +32,15 @@ console.log(list.at(3));
 console.log(list.at(5)); // Err
 console.log(list.at(-1));
 console.log(list.at(4));
+
+console.log("-----");
+list.pop();
+list.toString();
+list.pop();
+list.toString();
+list.pop();
+list.toString();
+list.pop();
+list.toString();
+list.pop();
+list.toString();
