@@ -34,19 +34,41 @@ export default class LinkedList {
     this.headNode = new Node(value, this.headNode);
   }
 
+  // size() {
+  //   let sum = 0;
+  //   if (this.headNode === null) return sum;
+  //   let endFound = false;
+  //   let currentNode = this.headNode;
+  //   while (!endFound) {
+  //     sum += 1;
+  //     if (currentNode.link === null) {
+  //       endFound = true;
+  //     }
+  //     currentNode = currentNode.link;
+  //   }
+  //   return sum;
+  // }
+
+  /**
+   *
+   * @returns The total number of nodes in the list
+   */
   size() {
-    let sum = 0;
-    if (this.headNode === null) return sum;
-    let endFound = false;
+    let listSize = 0;
+
+    // If list is empty return 0
+    if (this.headNode === null) return listSize;
+
+    // Set current node to the head node and add one to the list size
     let currentNode = this.headNode;
-    while (!endFound) {
-      sum += 1;
-      if (currentNode.link === null) {
-        endFound = true;
-      }
+    listSize += 1;
+
+    // Iterate through list and add 1 to list size for each node
+    while (currentNode.link != null) {
+      listSize += 1;
       currentNode = currentNode.link;
     }
-    return sum;
+    return listSize;
   }
 
   head() {

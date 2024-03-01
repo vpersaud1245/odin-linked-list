@@ -41,20 +41,6 @@ list.append("4");
 list.toString();
 console.log("------------------------------------\n\n");
 
-console.log(`size: ${list.size()}`);
-console.log("Head");
-console.log(list.head());
-console.log("Tail");
-console.log(list.tail());
-
-list.prepend("0");
-list.toString();
-console.log(`size: ${list.size()}`);
-console.log("Head");
-console.log(list.head());
-console.log("Tail");
-console.log(list.tail());
-
 console.log("\n----- LIST AT INDEX TESTING -----");
 console.log("Current Linked List:");
 list.toString();
