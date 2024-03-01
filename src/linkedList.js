@@ -10,27 +10,27 @@ export default class LinkedList {
    * @param {*} value
    */
   append(value) {
+    // Create Node to be appended
     const newNode = new Node(value);
-    if (this.headNode === null) this.headNode = newNode;
-    else {
-      let currentNode = this.headNode;
-      let endFound = false;
-      while (endFound === false) {
-        if (currentNode.link === null) {
-          currentNode.link = newNode;
-          endFound = true;
-        } else {
-          currentNode = currentNode.link;
-        }
-      }
-    }
-  }
-
-  prepend(value) {
+    // Set headNode to new node if list is empty
     if (this.headNode === null) {
-      this.headNode = new Node(value);
+      this.headNode = newNode;
       return;
     }
+    // Iterate through list until the end is found
+    let currentNode = this.headNode;
+    while (currentNode.link != null) {
+      currentNode = currentNode.link;
+    }
+    // link the last element to the new element
+    currentNode.link = newNode;
+  }
+
+  /**
+   * Adds a new node containing value to the start of the list
+   * @param {*} value
+   */
+  prepend(value) {
     this.headNode = new Node(value, this.headNode);
   }
 
