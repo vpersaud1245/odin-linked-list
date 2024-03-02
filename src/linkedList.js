@@ -110,7 +110,7 @@ export default class LinkedList {
       return;
     }
 
-    // Update head node if list size is 1
+    // Reset head node to null if list size is 1
     if (listSize === 1) {
       this.headNode = null;
       return;
@@ -138,20 +138,23 @@ export default class LinkedList {
     return false;
   }
 
+  /**
+   *
+   * @param {*} value
+   * @returns The index of the node containing value, or null if not found.
+   */
   find(value) {
-    if (!this.contains(value)) {
-      return null;
-    }
-    let index = 0;
+    const listSize = this.size();
     let currentNode = this.headNode;
-    for (let i = 0; i < this.size(); i += 1) {
+
+    // Iterate through list and return index of node if value is found
+    for (let i = 0; i < listSize; i += 1) {
       if (currentNode.value === value) {
-        index = i;
-        break;
+        return i;
       }
       currentNode = currentNode.link;
     }
-    return index;
+    return null;
   }
 
   toString() {
