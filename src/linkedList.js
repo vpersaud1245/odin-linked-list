@@ -157,27 +157,30 @@ export default class LinkedList {
     return null;
   }
 
+  /**
+   * Represents the LinkedList as a string in the format (value) -> (value) -> (value) -> null,
+   * and logs it to the console.
+   */
   toString() {
-    let linkedListString = "";
-    if (this.headNode === null) {
-      linkedListString += "null";
-      // eslint-disable-next-line no-console
-      console.log(linkedListString);
-    } else {
-      let currentNode = this.headNode;
-      let endFound = false;
-      while (endFound === false) {
-        linkedListString += `(${currentNode.value}) -> `;
-        if (currentNode.link === null) {
-          linkedListString += "null";
-          // eslint-disable-next-line no-console
-          console.log(`${linkedListString}`);
-          endFound = true;
-        } else {
-          currentNode = currentNode.link;
-        }
-      }
+    // If the list is empty, print "null"
+    if (this.size() === 0) {
+      console.log("null");
+      return;
     }
+
+    // Append headNode value to the string
+    let currentNode = this.headNode;
+    let linkedListString = `(${currentNode.value}) -> `;
+
+    // Iterate through the list and append node values to the string
+    while (currentNode.link != null) {
+      currentNode = currentNode.link;
+      linkedListString += `(${currentNode.value}) -> `;
+    }
+
+    // Append "null" to signify the end of the list and log to the console
+    linkedListString += "null";
+    console.log(linkedListString);
   }
 
   /**
