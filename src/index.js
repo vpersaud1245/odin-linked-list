@@ -2,10 +2,6 @@
 import LinkedList from "./linkedList";
 
 const list = new LinkedList();
-console.log(`Head: ${list.head()}`);
-console.log("Tail");
-console.log(list.tail());
-console.log(`size: ${list.size()}`);
 
 console.log("\n----- PREPEND TESTING -----");
 console.log("Current Linked List:");
@@ -40,6 +36,20 @@ console.log("Append 4");
 list.append("4");
 list.toString();
 console.log("------------------------------------\n\n");
+
+console.log("\n----- HEAD TESTING -----");
+console.log("Current Linked List:");
+list.toString();
+console.log("Head:", list.head());
+console.log("Head of an empty list: ");
+const emptyList = new LinkedList();
+emptyList.toString();
+console.log("Head: ", emptyList.head());
+console.log("------------------------------------\n\n");
+
+console.log("Tail");
+console.log(list.tail());
+console.log(`size: ${list.size()}`);
 
 console.log("\n----- LIST AT INDEX TESTING -----");
 console.log("Current Linked List:");

@@ -34,21 +34,6 @@ export default class LinkedList {
     this.headNode = new Node(value, this.headNode);
   }
 
-  // size() {
-  //   let sum = 0;
-  //   if (this.headNode === null) return sum;
-  //   let endFound = false;
-  //   let currentNode = this.headNode;
-  //   while (!endFound) {
-  //     sum += 1;
-  //     if (currentNode.link === null) {
-  //       endFound = true;
-  //     }
-  //     currentNode = currentNode.link;
-  //   }
-  //   return sum;
-  // }
-
   /**
    *
    * @returns The total number of nodes in the list
@@ -71,6 +56,10 @@ export default class LinkedList {
     return listSize;
   }
 
+  /**
+   *
+   * @returns first node in the list, null if list is empty
+   */
   head() {
     return this.headNode;
   }
