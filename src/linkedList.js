@@ -218,14 +218,16 @@ export default class LinkedList {
       console.log("Index out of Bounds");
       return;
     }
-    const priorIndex = this.at(index - 1);
-    const postIndex = this.at(index + 1);
+
+    const nodeBeforeIndexToRemove = this.at(index - 1);
+    const nodeAfterIndexToRemove = this.at(index + 1);
+
     if (index === 0) {
-      this.headNode = postIndex;
+      this.headNode = nodeAfterIndexToRemove;
     } else if (index === size - 1) {
-      priorIndex.link = null;
+      nodeBeforeIndexToRemove.link = null;
     } else {
-      priorIndex.link = postIndex;
+      nodeBeforeIndexToRemove.link = nodeAfterIndexToRemove;
     }
   }
 }
