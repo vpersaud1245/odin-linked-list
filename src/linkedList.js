@@ -192,15 +192,19 @@ export default class LinkedList {
     const size = this.size();
     if (index < 0 || index > size - 1) {
       console.log("Index out of Bounds");
+      return;
     }
-    const priorIndex = this.at(index - 1);
-    const nodeAtCurrentIndex = this.at(index);
+
+    const nodeBeforeIndexToInsert = this.at(index - 1);
+    const currentNodeAtIndexToInsert = this.at(index);
+
     if (index === 0) {
-      this.headNode = new Node(value, nodeAtCurrentIndex);
-    } else if (index === size - 1) {
-      nodeAtCurrentIndex.link = new Node(value);
+      this.headNode = new Node(value, currentNodeAtIndexToInsert);
     } else {
-      priorIndex.link = new Node(value, nodeAtCurrentIndex);
+      nodeBeforeIndexToInsert.link = new Node(
+        value,
+        currentNodeAtIndexToInsert,
+      );
     }
   }
 

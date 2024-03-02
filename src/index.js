@@ -142,8 +142,8 @@ list.toString();
 console.log("Insert 6 at index 5");
 list.insertAt("6", 5);
 list.toString();
-console.log("Insert 30 at index 2");
-list.insertAt("30", 2);
+console.log("Insert 30 at index 7");
+list.insertAt("30", 7);
 list.toString();
 console.log("------------------------------------\n\n");
 
