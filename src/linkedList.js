@@ -121,22 +121,21 @@ export default class LinkedList {
     secondToLastNode.link = null;
   }
 
+  /**
+   *
+   * @param {*} value
+   * @returns True if the passed in value is in the list and otherwise returns false.
+   */
   contains(value) {
-    let valueFound = false;
-    if (this.headNode === null) return valueFound;
-    let endFound = false;
+    const listSize = this.size();
     let currentNode = this.headNode;
-    while (!endFound) {
-      if (currentNode.value === value) {
-        valueFound = true;
-        break;
-      } else if (currentNode.link === null) {
-        endFound = true;
-      } else {
-        currentNode = currentNode.link;
-      }
+
+    // Iterate thorough list and return true if value is found
+    for (let i = 0; i < listSize; i += 1) {
+      if (currentNode.value === value) return true;
+      currentNode = currentNode.link;
     }
-    return valueFound;
+    return false;
   }
 
   find(value) {

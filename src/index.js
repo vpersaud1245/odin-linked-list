@@ -116,6 +116,7 @@ console.log("List contains value 1:", list.contains("1"));
 console.log("List contains value 2:", list.contains("2"));
 console.log("List contains value -1:", list.contains("-1"));
 console.log("List contains value 4:", list.contains("4"));
+console.log("Empty list contains value 1:", emptyList.contains("1"));
 console.log("------------------------------------\n\n");
 
 // Append to list for testing
