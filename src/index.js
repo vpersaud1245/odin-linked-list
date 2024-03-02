@@ -47,9 +47,32 @@ emptyList.toString();
 console.log("Head: ", emptyList.head());
 console.log("------------------------------------\n\n");
 
-console.log("Tail");
-console.log(list.tail());
-console.log(`size: ${list.size()}`);
+console.log("\n----- TAIL TESTING -----");
+console.log("Current Linked List:");
+list.toString();
+console.log("Tail:", list.tail());
+console.log("Tail of empty list:", emptyList.tail());
+list.pop();
+list.pop();
+list.toString();
+console.log("Tail of 2 nodes", list.tail());
+list.pop();
+list.toString();
+console.log("Tail of 1 node", list.tail());
+console.log("------------------------------------\n\n");
+
+console.log("\n----- SIZE TESTING -----");
+console.log("Current Linked List:");
+list.toString();
+console.log("Size of an empty list:", emptyList.size());
+console.log("Size of the current list:", list.size());
+list.append("2");
+list.append("3");
+list.append("4");
+console.log("Append some elements");
+list.toString();
+console.log("Size of current list:", list.size());
+console.log("------------------------------------\n\n");
 
 console.log("\n----- LIST AT INDEX TESTING -----");
 console.log("Current Linked List:");

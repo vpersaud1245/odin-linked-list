@@ -64,15 +64,31 @@ export default class LinkedList {
     return this.headNode;
   }
 
+  // tail() {
+  //   if (this.headNode === null) return null;
+  //   let endFound = false;
+  //   let currentNode = this.headNode;
+  //   while (!endFound) {
+  //     if (currentNode.link === null) {
+  //       endFound = true;
+  //       break;
+  //     }
+  //     currentNode = currentNode.link;
+  //   }
+  //   return currentNode;
+  // }
+
+  /**
+   *
+   * @returns The last node in the list, null if empty
+   */
   tail() {
+    // Return null if list is empty
     if (this.headNode === null) return null;
-    let endFound = false;
+
+    // Iterate to end of the list and return the last node
     let currentNode = this.headNode;
-    while (!endFound) {
-      if (currentNode.link === null) {
-        endFound = true;
-        break;
-      }
+    while (currentNode.link != null) {
       currentNode = currentNode.link;
     }
     return currentNode;
