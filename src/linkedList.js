@@ -99,22 +99,26 @@ export default class LinkedList {
     return currentNode;
   }
 
+  /**
+   *
+   * Removes the last element from the list
+   */
   pop() {
-    if (this.size() === 0) {
+    const listSize = this.size();
+    if (listSize === 0) {
       console.log("List is empty");
       return;
     }
-    if (this.size() === 1) {
+
+    // Update head node if list size is 1
+    if (listSize === 1) {
       this.headNode = null;
       return;
     }
-    if (this.size() === 2) {
-      this.headNode.link = null;
-      return;
-    }
-    const secondToLastIndex = this.size() - 2;
-    const elementAtSecondToLastIndex = this.at(secondToLastIndex);
-    elementAtSecondToLastIndex.link = null;
+
+    // Remove link on second to last node
+    const secondToLastNode = this.at(listSize - 2);
+    secondToLastNode.link = null;
   }
 
   contains(value) {

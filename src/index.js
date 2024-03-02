@@ -101,7 +101,6 @@ list.pop();
 list.toString();
 console.log("pop");
 list.pop();
-list.toString();
 console.log("------------------------------------\n\n");
 
 // Append to list for testing
