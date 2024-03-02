@@ -64,20 +64,6 @@ export default class LinkedList {
     return this.headNode;
   }
 
-  // tail() {
-  //   if (this.headNode === null) return null;
-  //   let endFound = false;
-  //   let currentNode = this.headNode;
-  //   while (!endFound) {
-  //     if (currentNode.link === null) {
-  //       endFound = true;
-  //       break;
-  //     }
-  //     currentNode = currentNode.link;
-  //   }
-  //   return currentNode;
-  // }
-
   /**
    *
    * @returns The last node in the list, null if empty
@@ -94,18 +80,20 @@ export default class LinkedList {
     return currentNode;
   }
 
+  /**
+   *
+   * @param {*} index
+   * @returns The node at the given index
+   */
   at(index) {
-    if (index < 0 || index > this.size() - 1) {
+    // Log message if index is not within the list
+    if (index < 0 || index >= this.size()) {
       return "Index out of Bounds";
     }
+
+    // Iterate to index and return the node
     let currentNode = this.headNode;
-    for (let i = 0; i <= index; i += 1) {
-      if (index === 0) {
-        break;
-      }
-      if (index === i) {
-        break;
-      }
+    for (let i = 0; i < index; i += 1) {
       currentNode = currentNode.link;
     }
     return currentNode;
